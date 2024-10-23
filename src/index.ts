@@ -39,7 +39,7 @@ class Forms {
     }
 
     private validarTelefone(numero:string):boolean{
-        const numeroRegex =  /^\(\d{2}\)\d{9}$/
+        const numeroRegex =  /^\\d{2}\\d{9}$/
         return numeroRegex.test(numero)
     }
 

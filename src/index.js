@@ -39,15 +39,24 @@ class Forms {
         if (!this.validarTelefone(this.phoneNumber.value)) {
             alert("Por favor, insira um número de telefone no formato correto, por exemplo (31)9XXXXXXX.");
         }
+        const templateParams = {
+            from_name: this.name.value,
+            from_email: this.email.value,
+            attend: this.attend.value,
+            phone_number: this.phoneNumber.value,
+            job_vacancy: this.jobVacancy.value,
+            experience: this.exp.value,
+            curriculo: this.formInput.value,
+            description: this.description.value,
+        };
         const formData = new FormData();
-        formData.append("nome", this.name.value);
-        formData.append("curso", this.attend.value);
-        formData.append("vaga", this.jobVacancy.value);
-        formData.append("experiencia", this.exp.value);
-        formData.append("email", this.email.value);
-        formData.append("telefone", this.phoneNumber.value);
+        formData.append("nome", templateParams.from_name);
+        formData.append("curso", templateParams.attend);
+        formData.append("vaga", templateParams.job_vacancy);
+        formData.append("experiencia", templateParams.experience);
+        formData.append("email", templateParams.phone_number);
         formData.append("descricao", this.description.value);
-        formData.append("curriculo", this.formInput.value);
+        formData.append("curriculo", templateParams.curriculo);
         emailjs_com_1.default.sendForm(ServiceID, template_ID, this.form)
             .then((response) => {
             alert("Formulário enviado com sucesso");
