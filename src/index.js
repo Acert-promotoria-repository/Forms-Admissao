@@ -5,9 +5,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const emailjs_com_1 = __importDefault(require("emailjs-com"));
 require("../css/styles.css");
-const template_ID = "template_vpi4xsu";
-const ServiceID = "service_forms_admissao";
-const PublicKey = "_eQ20dD_VcIvrwYWO";
+const template_ID = "template_iltbw4k";
+const ServiceID = "servico_rh_forms";
+const PublicKey = "yHbyIk1UzgONx2h86";
 emailjs_com_1.default.init(PublicKey);
 class Forms {
     constructor() {
@@ -27,7 +27,7 @@ class Forms {
         return emailRegex.test(email);
     }
     validarTelefone(numero) {
-        const numeroRegex = /^\\d{2}\\d{9}$/;
+        const numeroRegex = /^\(\d{2}\)\d{9}$/;
         return numeroRegex.test(numero);
     }
     HandleSubmit(event) {
@@ -38,6 +38,7 @@ class Forms {
         }
         if (!this.validarTelefone(this.phoneNumber.value)) {
             alert("Por favor, insira um número de telefone no formato correto, por exemplo (31)9XXXXXXX.");
+            return;
         }
         const templateParams = {
             from_name: this.name.value,
@@ -49,22 +50,15 @@ class Forms {
             curriculo: this.formInput.value,
             description: this.description.value,
         };
-        const formData = new FormData();
-        formData.append("nome", templateParams.from_name);
-        formData.append("curso", templateParams.attend);
-        formData.append("vaga", templateParams.job_vacancy);
-        formData.append("experiencia", templateParams.experience);
-        formData.append("email", templateParams.phone_number);
-        formData.append("descricao", this.description.value);
-        formData.append("curriculo", templateParams.curriculo);
-        emailjs_com_1.default.sendForm(ServiceID, template_ID, this.form)
+        emailjs_com_1.default.send(ServiceID, template_ID, templateParams)
             .then((response) => {
             alert("Formulário enviado com sucesso");
             console.log("Sucesso!", response.status, response.text);
-        }), (error) => {
+        }, (error) => {
             alert("Houve um erro");
             console.log("Falha....", error);
-        };
+        });
+        // Enviar via WhatsApp
         const WhatsAppMessage = `
             Nome: ${this.name.value}\n
             Curso: ${this.attend.value}\n
@@ -75,7 +69,7 @@ class Forms {
             Descrição: ${this.description.value}\n
             Currículo: ${this.formInput.value}\n
         `.replace(/\s+/g, '%20');
-        const WhatsAppURL = `https://wa.me/+5531997661152?text=${WhatsAppMessage}`;
+        const WhatsAppURL = `https://wa.me/+5531991516755?text=${WhatsAppMessage}`;
         window.open(WhatsAppURL, '_blank');
     }
 }
