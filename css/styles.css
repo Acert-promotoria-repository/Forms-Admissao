@@ -135,3 +135,165 @@ h1{
 .letra-amarela{
     color: rgb(251, 255, 0);
 }
+
+.button-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.button-container button{
+
+    width: 13rem;
+    height: 3rem;
+
+    color: rgb(251, 255, 0) ;
+
+    border-radius: 20px;
+    border:none;
+    background-color: black;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.footer{
+    background-color: rgb(247, 198, 3);
+    width: 100%;
+    height: 100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 15px 15px 15px 15px;
+}
+
+.footer-container{
+    background-color: rgb(247, 198, 3);
+    width: 100%;
+    height: 100%;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px 20px 20px;
+}
+
+.footer-container-span{
+
+    color: black;
+}
+
+/* Estilo para dispositivos menores que 1024px (tablets e notebooks pequenos) */
+@media (max-width: 1024px) {
+    .form-container form {
+        width: 80%;
+    }
+
+    .form-group input, 
+    .form-group textarea {
+        width: 100%;
+        font-size: 18px;
+    }
+
+    .form-group-curriculo input {
+        width: 90%;
+    }
+
+    .button-container button {
+        width: 10rem;
+        font-size: 16px;
+    }
+}
+
+/* Estilo para dispositivos menores que 768px (tablets em modo retrato e celulares grandes) */
+@media (max-width: 768px) {
+    .navbar {
+        text-align: center;
+    }
+
+    .logo-container img {
+        height: 4rem;
+    }
+
+    .assets a {
+        font-size: 18px;
+    }
+
+    .form-container {
+        margin-top: 3rem;
+    }
+
+    .form-container form {
+        width: 90%;
+    }
+
+    .form-group input, 
+    .form-group textarea {
+        width: 20rem;
+        font-size: 16px;
+
+    }
+
+    #exp{
+        justify-content: center;
+        align-items: center;
+        display: center;
+        width: 99%;
+    }
+
+    .form-group-curriculo input {
+        width: 95%;
+    }
+
+    .button-container button {
+        width: 9rem;
+        height: 2.5rem;
+        font-size: 14px;
+    }
+
+    label{
+        text-align: center;
+    }
+}
+
+/* Estilo para dispositivos menores que 480px (celulares) */
+@media (max-width: 480px) {
+    body {
+        font-size: 16px;
+    }
+
+    .navbar {
+        text-align: center;
+    }
+
+    .logo-container img {
+        height: 3rem;
+    }
+
+    .form-container form {
+        width: 95%;
+    }
+
+    .form-group input, 
+    .form-group textarea {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .form-group-curriculo input {
+        width: 100%;
+    }
+
+    .button-container button {
+        width: 8rem;
+        height: 2.5rem;
+        font-size: 12px;
+    }
+
+    .footer {
+        padding: 10px;
+    }
+}
