@@ -74,6 +74,7 @@ body{
     flex-direction: column;
     background-color: rgb(247, 198, 3);
     border-radius: 1%;
+    box-shadow: 2px 4px 10px rgba(255, 238, 0, 0.8);
 }
 
 h1{
@@ -94,9 +95,11 @@ h1{
     outline: none;
     margin-top: 10px;
     margin-bottom: 10px;
-    padding: 10px 10px 10px 10px;
+    padding: 13px 13px 13px 13px;
     width: 40rem;
     font-size: 20px;
+    border-radius: 15px;
+    border: none;
 }
 
 .form-group textarea{
@@ -105,7 +108,7 @@ h1{
     margin-bottom: 10px;
     width: 40rem;
     padding: 10px 10px 10px 10px;
-   
+   border-radius: 15px;
 }
 
 .form-group-curriculo{
