@@ -27,7 +27,7 @@ class Forms {
         return emailRegex.test(email);
     }
     validarTelefone(numero) {
-        const numeroRegex = /^\(\d{2}\)\d{9}$/;
+        const numeroRegex = /^\\d{2}\\d{9}$/;
         return numeroRegex.test(numero);
     }
     HandleSubmit(event) {
