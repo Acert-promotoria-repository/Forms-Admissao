@@ -39,7 +39,7 @@ class Forms {
     }
 
     private validarTelefone(numero:string):boolean{
-        const numeroRegex =  /^\\d{2}\\d{9}$/
+        const numeroRegex =  /^\(\d{2}\)\d{9}$/
         return numeroRegex.test(numero)
     }
 
@@ -72,11 +72,11 @@ class Forms {
         formData.append("vaga", templateParams.job_vacancy);
         formData.append("experiencia", templateParams.experience);
         formData.append("email", templateParams.phone_number);
-        formData.append("descricao", this.description.value);
+        formData.append("descricao", templateParams.description);
         formData.append("curriculo",templateParams.curriculo)
         
 
-        emailjs.sendForm(ServiceID, template_ID,this.form)
+        emailjs.send(ServiceID, template_ID,this.form)
         .then((response:any)=>{
             alert("Formulário enviado com sucesso")
             console.log("Sucesso!", response.status, response.text)
