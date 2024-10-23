@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="/assets/faviconAcert.jfif" type="image/x-icon">
     <title>Formulário de Admissão - Acert Promotoria</title>
-    <script src="/dist/index.min.js" defer></script>
+    <script src="./dist/index.min.js" defer></script>
 </head>
 <body>
     <!--Navbar-->
@@ -54,9 +54,9 @@
                 <label for="descricao">Descrição do Indivíduo:</label>
                 <textarea id="descricao" name="descricao" rows="4" required></textarea>
                 </div>
-                <div class="form-group-curriculo">
-                    <label for="curriculo">Anexar Currículo (PDF, DOCX):</label>
-                    <input type="file" id="curriculo" name="curriculo" accept=".pdf,.doc,.docx" required>
+                <div class="form-group">
+                    <label for="curriculo">Link do Curriculo (Google Drive):</label>
+                    <input type="url" id="curriculo" name="curriculo"  required>
                 </div>
 
                 <section class="button-container">

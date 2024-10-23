@@ -26,7 +26,7 @@ class Forms {
         this.exp = document.querySelector("#exp") as HTMLInputElement;
         this.email = document.querySelector("#email") as HTMLInputElement;
         this.phoneNumber = document.querySelector("#telefone") as HTMLInputElement;
-        this.description = document.querySelector("descricao") as HTMLTextAreaElement;
+        this.description = document.querySelector("#descricao") as HTMLTextAreaElement;
         this.form = document.querySelector("#form") as HTMLFormElement;
         this.formInput = document.querySelector("#curriculo") as HTMLInputElement;
 
@@ -55,18 +55,26 @@ class Forms {
             alert("Por favor, insira um número de telefone no formato correto, por exemplo (31)9XXXXXXX.")
         }
 
-        const formData = new FormData();
-        formData.append("nome", this.name.value);
-        formData.append("curso", this.attend.value);
-        formData.append("vaga", this.jobVacancy.value);
-        formData.append("experiencia", this.exp.value);
-        formData.append("email", this.email.value);
-        formData.append("telefone", this.phoneNumber.value);
-        formData.append("descricao", this.description.value);
-
-        if(this.formInput.files && this.formInput.files[0]){
-            formData.append("curriculo", this.formInput.files[0])
+        const templateParams = {
+            from_name: this.name.value,
+            from_email: this.email.value,
+            attend:this.attend.value,
+            phone_number: this.phoneNumber.value,
+            job_vacancy: this.jobVacancy.value,
+            experience: this.exp.value,
+            curriculo: this.formInput.value,
+            description: this.description.value,
         }
+
+        const formData = new FormData();
+        formData.append("nome", templateParams.from_name);
+        formData.append("curso", templateParams.attend);
+        formData.append("vaga", templateParams.job_vacancy);
+        formData.append("experiencia", templateParams.experience);
+        formData.append("email", templateParams.phone_number);
+        formData.append("descricao", this.description.value);
+        formData.append("curriculo",templateParams.curriculo)
+        
 
         emailjs.sendForm(ServiceID, template_ID,this.form)
         .then((response:any)=>{
@@ -78,13 +86,14 @@ class Forms {
         }
 
         const WhatsAppMessage = `
-            Nome: ${this.name.value}
-            Curso: ${this.attend.value}
-            Vaga: ${this.jobVacancy.value}
-            Experiência: ${this.exp.value}
-            Email: ${this.email.value}
-            Telefone: ${this.phoneNumber.value}
-            Descrição: ${this.description.value}
+            Nome: ${this.name.value}\n
+            Curso: ${this.attend.value}\n
+            Vaga: ${this.jobVacancy.value}\n
+            Experiência: ${this.exp.value}\n
+            Email: ${this.email.value}\n
+            Telefone: ${this.phoneNumber.value}\n
+            Descrição: ${this.description.value}\n
+            Currículo: ${this.formInput.value}\n
         `.replace(/\s+/g,'%20')
 
         const WhatsAppURL = `https://wa.me/+5531997661152?text=${WhatsAppMessage}`

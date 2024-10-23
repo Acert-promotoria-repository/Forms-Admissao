@@ -17,7 +17,7 @@ class Forms {
         this.exp = document.querySelector("#exp");
         this.email = document.querySelector("#email");
         this.phoneNumber = document.querySelector("#telefone");
-        this.description = document.querySelector("descricao");
+        this.description = document.querySelector("#descricao");
         this.form = document.querySelector("#form");
         this.formInput = document.querySelector("#curriculo");
         this.form.addEventListener("submit", (e) => this.HandleSubmit(e));
@@ -47,9 +47,7 @@ class Forms {
         formData.append("email", this.email.value);
         formData.append("telefone", this.phoneNumber.value);
         formData.append("descricao", this.description.value);
-        if (this.formInput.files && this.formInput.files[0]) {
-            formData.append("curriculo", this.formInput.files[0]);
-        }
+        formData.append("curriculo", this.formInput.value);
         emailjs_com_1.default.sendForm(ServiceID, template_ID, this.form)
             .then((response) => {
             alert("Formulário enviado com sucesso");
@@ -59,13 +57,14 @@ class Forms {
             console.log("Falha....", error);
         };
         const WhatsAppMessage = `
-            Nome: ${this.name.value}
-            Curso: ${this.attend.value}
-            Vaga: ${this.jobVacancy.value}
-            Experiência: ${this.exp.value}
-            Email: ${this.email.value}
-            Telefone: ${this.phoneNumber.value}
-            Descrição: ${this.description.value}
+            Nome: ${this.name.value}\n
+            Curso: ${this.attend.value}\n
+            Vaga: ${this.jobVacancy.value}\n
+            Experiência: ${this.exp.value}\n
+            Email: ${this.email.value}\n
+            Telefone: ${this.phoneNumber.value}\n
+            Descrição: ${this.description.value}\n
+            Currículo: ${this.formInput.value}\n
         `.replace(/\s+/g, '%20');
         const WhatsAppURL = `https://wa.me/+5531997661152?text=${WhatsAppMessage}`;
         window.open(WhatsAppURL, '_blank');
