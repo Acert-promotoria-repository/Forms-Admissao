@@ -1,4 +1,5 @@
 import emailjs from 'emailjs-com';
+import '../css/styles.css'
 
 const template_ID = "template_vpi4xsu";
 const ServiceID = "service_forms_admissao";

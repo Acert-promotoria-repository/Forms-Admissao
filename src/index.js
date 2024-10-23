@@ -4,6 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const emailjs_com_1 = __importDefault(require("emailjs-com"));
+require("../css/styles.css");
 const template_ID = "template_vpi4xsu";
 const ServiceID = "service_forms_admissao";
 const PublicKey = "_eQ20dD_VcIvrwYWO";
