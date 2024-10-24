@@ -277,6 +277,10 @@ h1{
         width: 95%;
     }
 
+    .form-group{
+        width: 20rem;
+    }
+
     .form-group input, 
     .form-group textarea {
         width: 100%;
