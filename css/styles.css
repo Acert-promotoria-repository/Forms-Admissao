@@ -192,6 +192,11 @@ h1{
         width: 80%;
     }
 
+    .form-group{
+        width: 90%;
+        text-align: center;
+    }
+
     .form-group input, 
     .form-group textarea {
         width: 100%;
@@ -230,9 +235,14 @@ h1{
         width: 90%;
     }
 
+    .form-group{
+        width: 90%;
+        text-align: center;
+    }
+
     .form-group input, 
     .form-group textarea {
-        width: 20rem;
+        width: 100%;
         font-size: 16px;
 
     }
